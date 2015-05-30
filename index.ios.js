@@ -13,7 +13,8 @@ var {
   View,
 } = React;
 
-var MOCK_RECIPES = [{title: "Risotto de Hongos"}, {title: "Chicken Parmesan"}]
+var MOCK_RECIPES = [{title: "Blue Cheese Burgers", description: "Salty blue cheese, sweet onions, and juicy beef are a classic and addictive combination. Cooking the onions is the most time-consuming part of this recipe, but be patient: Its worth it to coax out their deep, earthy flavor."},
+                    {title: "Chicken Fingers", description: "These garlicky, lightly breaded chicken strips just require a buttermilk marinade before a quick saute. Teamed with your favorite dipping sauce or served alone"}]
 
 var recipesApp = React.createClass({
   getInitialState: function() {
@@ -36,8 +37,11 @@ var recipesApp = React.createClass({
   renderRecipeListItem: function(recipe) {
     return (
       <View style={styles.recipeListItem}>
-        <Text style={styles.recipeListItemText}>
+        <Text style={styles.recipeListItemTitle}>
           { recipe.title }
+        </Text>
+        <Text style={styles.recipeListItemDescription}>
+          { recipe.description }
         </Text>
       </View>
     );
@@ -59,11 +63,18 @@ var styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ff7880"
   },
-  recipeListItemText: {
-    fontSize: 20,
+  recipeListItemTitle: {
+    fontSize: 24,
     color: "#FFFFFF",
+    fontFamily: "Baskerville",
+    fontWeight: "300",
+    marginBottom: 5,
+  },
+  recipeListItemDescription: {
+    fontSize: 13,
+    color: "#4b0b0e",
     fontFamily: "Helvetica Neue",
-    fontWeight: "300"
+    lineHeight: 20
   }
 });
 
