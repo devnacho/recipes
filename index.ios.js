@@ -55,9 +55,7 @@ var styles = StyleSheet.create({
     backgroundColor: "#ff505a"
   },
   recipeListItem: {
-    padding: 10,
-    paddingBottom: 20,
-    paddingTop: 20,
+    padding: 25,
     borderBottomWidth: 1,
     borderBottomColor: "#ff7880"
   },
@@ -65,6 +63,7 @@ var styles = StyleSheet.create({
     fontSize: 20,
     color: "#FFFFFF",
     fontFamily: "Helvetica Neue",
+    fontWeight: "300"
   }
 });
 
