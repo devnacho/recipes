@@ -10,6 +10,8 @@ var {
   TouchableHighlight,
 } = React;
 
+var RecipeItem = require('./RecipeItem')
+
 //Move to separate file so it can be required on other components
 var MOCK_RECIPES = [{title: "Blue Cheese Burgers", description: "Salty blue cheese, sweet onions, and juicy beef are a classic and addictive combination. Cooking the onions is the most time-consuming part of this recipe, but be patient: Its worth it to coax out their deep, earthy flavor."},
                     {title: "Chicken Fingers", description: "These garlicky, lightly breaded chicken strips just require a buttermilk marinade before a quick saute. Teamed with your favorite dipping sauce or served alone"}]
@@ -50,6 +52,11 @@ var RecipesList = React.createClass({
 
   _pressItem: function(recipe) {
     console.log(recipe);
+    this.props.navigator.push({
+      title: recipe.title,
+      component: RecipeItem,
+      passProps: {recipe: recipe}
+    });
   }
 });
 

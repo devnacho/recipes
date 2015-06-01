@@ -22,8 +22,9 @@ var NavigatorComponent = React.createClass({
           title: 'Recipes'
         }}
         style={styles.wrapper}
-        barTintColor="#a3262d"
+        barTintColor="#7549ae"
         titleTextColor="white"
+        tintColor="#eaddfb"
       />
     );
   }
