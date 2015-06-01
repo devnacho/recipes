@@ -13,6 +13,6 @@ var {
   View,
 } = React;
 
-var RecipeList = require('./App/components/RecipeList')
+var NavigatorComponent = require('./App/components/NavigatorComponent')
 
-AppRegistry.registerComponent('recipesApp', () => RecipeList);
+AppRegistry.registerComponent('recipesApp', () => NavigatorComponent);
