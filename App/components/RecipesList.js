@@ -7,6 +7,7 @@ var {
   Text,
   ListView,
   View,
+  TouchableHighlight,
 } = React;
 
 //Move to separate file so it can be required on other components
@@ -22,6 +23,7 @@ var RecipesList = React.createClass({
   },
 
   render: function() {
+    console.log(this.props);
     return (
       <ListView
         dataSource={this.state.dataSource}
@@ -33,16 +35,22 @@ var RecipesList = React.createClass({
 
   renderRecipeListItem: function(recipe) {
     return (
-      <View style={styles.recipeListItem}>
-        <Text style={styles.recipeListItemTitle}>
-          { recipe.title }
-        </Text>
-        <Text style={styles.recipeListItemDescription}>
-          { recipe.description }
-        </Text>
-      </View>
+      <TouchableHighlight onPress={ () => this._pressItem(recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
+        <View style={styles.recipeListItem}>
+          <Text style={styles.recipeListItemTitle}>
+            { recipe.title }
+          </Text>
+          <Text style={styles.recipeListItemDescription}>
+            { recipe.description }
+          </Text>
+        </View>
+      </TouchableHighlight>
     );
   },
+
+  _pressItem: function(recipe) {
+    console.log(recipe);
+  }
 });
 
 var styles = StyleSheet.create({
