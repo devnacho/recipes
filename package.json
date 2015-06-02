@@ -6,6 +6,7 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "firebase": "^2.2.6",
     "fluxxor": "^1.5.4",
     "react-native": "^0.4.4"
   }

@@ -24,7 +24,7 @@ var {
 
 AppRegistry.registerComponent('recipesApp', () => MainTabBar);
 
-flux.actions.loadRecipes();
+flux.actions.startListeningRecipes();
 
 flux.on("dispatch", function(type, payload) {
   if (console && console.log) {

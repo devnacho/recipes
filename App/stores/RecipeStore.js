@@ -1,43 +1,36 @@
 'use strict';
 
 var Fluxxor = require('fluxxor');
+var Firebase = require('firebase');
+var ref = new Firebase('fiery-torch-4859.firebaseIO.com');
+var recipesRef = ref.child('recipes');
+
 
 var RecipeStore = Fluxxor.createStore({
 
   initialize: function() {
     this.recipes = [];
-
     this.bindActions(
-      "LOAD_RECIPES_SUCCESS", this.onLoadRecipesSuccess
+      "LISTEN_RECIPES", this.listenToRecipes
     );
   },
 
-  onLoadRecipesSuccess: function(payload, type) {
-    this.recipes = payload.recipes;
+  listenToRecipes: function(payload, type) {
+    recipesRef.on('value', this.updateRecipes.bind(this));
     return this.emit('change');
   },
 
-  onAddRecipeSuccess: function(payload) {
-    this.recipes.push(payload.recipe);
-    return this.emit('change');
-  },
-
-  onUpdateRecipeSuccess: function(payload) {
-    this.recipes[this.currentRecipeIndex] = payload.recipe;
-    return this.emit('change');
-  },
-
-  onRemoveRecipeSuccess: function(payload) {
-    this.recipes.splice(this._indexOfRecipe(payload.recipe), 1);
-    return this.emit('change');
-  },
-
-  _indexOfRecipe: function(recipe) {
-    var recipeTitles;
-    recipeTitles = this.recipes.map(function(recipe) {
-      return recipe.title;
+  updateRecipes: function(recipesSnapshot) {
+    var recipes = [];
+    recipesSnapshot.forEach(function(recipeData) {
+      var recipe = recipeData.val();
+      recipe.id = recipeData.key();
+      recipes.unshift(recipe);
     });
-    return recipeTitles.indexOf(recipe.title);
+
+    this.recipes = recipes;
+
+    return this.emit('change');
   },
 
   getState: function() {

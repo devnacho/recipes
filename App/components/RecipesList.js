@@ -35,7 +35,6 @@ var RecipesList = React.createClass({
   },
 
   render: function() {
-    console.log(this.props);
     return (
       <ListView
         dataSource={this.state.dataSource}
