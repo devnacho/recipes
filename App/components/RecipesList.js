@@ -44,7 +44,7 @@ var RecipesList = React.createClass({
     );
   },
 
-  renderRecipeListItem: function(recipe) {
+  renderRecipeListItem: function(recipe: string, sectionID: number, rowID: number) {
     return (
       <TouchableHighlight onPress={ () => this._pressItem(recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
         <View style={styles.recipeListItem}>
@@ -60,7 +60,6 @@ var RecipesList = React.createClass({
   },
 
   _pressItem: function(recipe) {
-    console.log(recipe);
     this.props.navigator.push({
       title: recipe.title,
       component: RecipeItem,
