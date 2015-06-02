@@ -13,6 +13,8 @@ var {
   View,
 } = React;
 
+var MainTabBar = require('./App/components/MainTabBar')
+
 var NavigatorComponent = require('./App/components/NavigatorComponent')
 
-AppRegistry.registerComponent('recipesApp', () => NavigatorComponent);
+AppRegistry.registerComponent('recipesApp', () => MainTabBar);
