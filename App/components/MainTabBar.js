@@ -29,7 +29,7 @@ var MainTabBar = React.createClass({
 
   render: function() {
     return (
-      <TabBarIOS tintColor="black" barTintColor="white">
+      <TabBarIOS tintColor="black" barTintColor="white" style={styles.tabBar } >
         <TabBarIOS.Item title="Recipe" selected={ this.state.selectedTab === 'recipesTab' }
           onPress={() => {
             this._pressTabItem('recipesTab');
