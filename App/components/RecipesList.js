@@ -1,6 +1,11 @@
 'use strict';
 
 var React = require('react-native');
+var Fluxxor = require('fluxxor');
+
+var flux = require('../flux');
+var RecipeItem = require('./RecipeItem');
+
 var {
   AppRegistry,
   StyleSheet,
@@ -10,18 +15,23 @@ var {
   TouchableHighlight,
 } = React;
 
-var RecipeItem = require('./RecipeItem')
+var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-//Move to separate file so it can be required on other components
-var MOCK_RECIPES = [{title: "Blue Cheese Burgers", description: "Salty blue cheese, sweet onions, and juicy beef are a classic and addictive combination. Cooking the onions is the most time-consuming part of this recipe, but be patient: Its worth it to coax out their deep, earthy flavor."},
-                    {title: "Chicken Fingers", description: "These garlicky, lightly breaded chicken strips just require a buttermilk marinade before a quick saute. Teamed with your favorite dipping sauce or served alone"}]
 
 var RecipesList = React.createClass({
+
   getInitialState: function() {
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
-      dataSource: ds.cloneWithRows(MOCK_RECIPES),
+      dataSource: ds.cloneWithRows([]),
     };
+  },
+
+  componentDidMount: function() {
+    var that = this;
+    flux.store("RecipeStore").on('change', function(){
+      that.setState({ dataSource: ds.cloneWithRows( flux.store("RecipeStore").getState().recipes ) });
+    });
+
   },
 
   render: function() {
