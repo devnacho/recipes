@@ -5,9 +5,9 @@
 'use strict';
 
 var React = require('react-native');
-var Fluxxor = require('fluxxor');
-var actions = require('./App/actions/actions');
-var RecipeStore = require('./App/stores/RecipeStore');
+var MainTabBar = require('./App/components/MainTabBar');
+var NavigatorComponent = require('./App/components/NavigatorComponent');
+var flux = require('./App/flux');
 
 
 var {
@@ -21,17 +21,6 @@ var {
 // Flux
 
 
-console.log(actions);
-
-var stores = {
-  RecipeStore: RecipeStore
-};
-
-var flux = new Fluxxor.Flux(stores, actions);
-
-var MainTabBar = require('./App/components/MainTabBar');
-
-var NavigatorComponent = require('./App/components/NavigatorComponent');
 
 AppRegistry.registerComponent('recipesApp', () => MainTabBar);
 

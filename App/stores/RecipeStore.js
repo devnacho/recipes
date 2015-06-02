@@ -6,14 +6,13 @@ var RecipeStore = Fluxxor.createStore({
 
   initialize: function() {
     this.recipes = [];
-    return this.bindActions(constants.ADD_RECIPE_SUCCESS, this.onAddRecipeSuccess,
-                            constants.UPDATE_RECIPE_SUCCESS, this.onUpdateRecipeSuccess,
-                            constants.REMOVE_RECIPE_SUCCESS, this.onRemoveRecipeSuccess,
-                            constants.LOAD_RECIPES_SUCCESS, this.onLoadRecipesSuccess,
-                            constants.SET_CURRENT_RECIPE, this.onSetCurrentRecipe);
+
+    this.bindActions(
+      "LOAD_RECIPES_SUCCESS", this.onLoadRecipesSuccess
+    );
   },
 
-  onLoadRecipesSuccess: function(payload) {
+  onLoadRecipesSuccess: function(payload, type) {
     this.recipes = payload.recipes;
     this.currentRecipeIndex = 0;
     return this.emit('change');
@@ -57,3 +56,5 @@ var RecipeStore = Fluxxor.createStore({
     };
   }
 });
+
+module.exports = RecipeStore;
