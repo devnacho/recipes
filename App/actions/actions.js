@@ -24,7 +24,10 @@ var actions = {
 
       }
     });
+  },
 
+  removeRecipe: function(recipe) {
+    recipesRef.child(recipe.id).remove();
   },
 };
 
