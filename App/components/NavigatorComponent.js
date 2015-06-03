@@ -11,15 +11,28 @@ var {
 } = React;
 
 var RecipesList = require('./RecipesList')
+var RecipeNew = require('./RecipeNew')
+
+
 
 var NavigatorComponent = React.createClass({
+
+  onRightButtonPress: function() {
+    this.refs.nav.push({
+      title: 'New Recipe',
+      component: RecipeNew
+    });
+  },
 
   render: function() {
     return (
       <NavigatorIOS
+        ref="nav"
         initialRoute={{
           component: RecipesList,
-          title: 'Recipes'
+          title: 'Recipes',
+          rightButtonTitle: 'New Recipe',
+          onRightButtonPress: this.onRightButtonPress
         }}
         style={styles.wrapper}
         barTintColor="#7549ae"

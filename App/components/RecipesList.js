@@ -62,7 +62,7 @@ var RecipesList = React.createClass({
     this.props.navigator.push({
       title: recipe.title,
       component: RecipeItem,
-      passProps: {recipe: recipe}
+      passProps: {recipe: recipe},
     });
   }
 });
