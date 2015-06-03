@@ -28,21 +28,29 @@ var RecipeItem = React.createClass({
   },
 
   _removeRecipe: function(recipe) {
-    flux.actions.removeRecipe(recipe);
     this.props.navigator.pop();
+    flux.actions.removeRecipe(recipe);
   },
 
   render: function() {
+    if(typeof this.state.recipe != 'undefined'){
+      return this._renderRecipeListItem(this.state.recipe);
+    }else{
+      return this._renderRemovedItem();
+    }
+  },
+
+  _renderRecipeListItem: function(recipe) {
     return (
       <ScrollView>
         <Text>
-          { this.state.recipe.title }
+          { recipe.title }
         </Text>
         <Text>
-          { this.state.recipe.description }
+          { recipe.description }
         </Text>
 
-        <TouchableHighlight onPress={ () => this._removeRecipe(this.state.recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
+        <TouchableHighlight onPress={ () => this._removeRecipe(recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
           <Text>
             Remove
           </Text>
@@ -50,6 +58,16 @@ var RecipeItem = React.createClass({
       </ScrollView>
     );
   },
+
+  _renderRemovedItem: function() {
+    // This could be a big trash icon and nothing else
+    // Leave this blank for now
+    return (
+      <ScrollView>
+      </ScrollView>
+    );
+  }
+
 });
 
 
