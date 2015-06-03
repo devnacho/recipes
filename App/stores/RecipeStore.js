@@ -33,10 +33,21 @@ var RecipeStore = Fluxxor.createStore({
     return this.emit('change');
   },
 
+  _indexOfRecipe: function(recipe) {
+    var recipeIds = this.recipes.map(function(recipe) {
+      return recipe.id;
+    });
+    return recipeIds.indexOf(recipe.id);
+  },
+
   getState: function() {
     return {
       recipes: this.recipes
     };
+  },
+
+  getRecipeState: function(recipe) {
+    return this.recipes[this._indexOfRecipe(recipe)];
   }
 });
 

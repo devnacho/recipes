@@ -14,6 +14,19 @@ var {
 
 var RecipeItem = React.createClass({
 
+  getInitialState: function() {
+    return {
+      recipe: this.props.recipe,
+    };
+  },
+
+  componentDidMount: function() {
+    var that = this;
+    flux.store("RecipeStore").on('change', function(){
+      that.setState({ recipe: flux.store("RecipeStore").getRecipeState(that.props.recipe) });
+    });
+  },
+
   _removeRecipe: function(recipe) {
     flux.actions.removeRecipe(recipe);
     this.props.navigator.pop();
@@ -23,13 +36,13 @@ var RecipeItem = React.createClass({
     return (
       <ScrollView>
         <Text>
-          { this.props.recipe.title }
+          { this.state.recipe.title }
         </Text>
         <Text>
-          { this.props.recipe.description }
+          { this.state.recipe.description }
         </Text>
 
-        <TouchableHighlight onPress={ () => this._removeRecipe(this.props.recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
+        <TouchableHighlight onPress={ () => this._removeRecipe(this.state.recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
           <Text>
             Remove
           </Text>

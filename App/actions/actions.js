@@ -7,7 +7,6 @@ var flux = require('../flux');
 var ref = new Firebase('fiery-torch-4859.firebaseIO.com');
 var recipesRef = ref.child('recipes');
 
-
 var actions = {
   startListeningRecipes: function() {
     this.dispatch(constants.LISTEN_RECIPES, {});

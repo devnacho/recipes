@@ -31,7 +31,6 @@ var RecipesList = React.createClass({
     flux.store("RecipeStore").on('change', function(){
       that.setState({ dataSource: ds.cloneWithRows( flux.store("RecipeStore").getState().recipes ) });
     });
-
   },
 
   render: function() {
