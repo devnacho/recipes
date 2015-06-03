@@ -20,11 +20,10 @@ var {
 
 // Flux
 
-
+flux.actions.startListeningRecipes();
 
 AppRegistry.registerComponent('recipesApp', () => MainTabBar);
 
-flux.actions.startListeningRecipes();
 
 flux.on("dispatch", function(type, payload) {
   if (console && console.log) {
