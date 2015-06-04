@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react-native');
+var flux = require('../flux');
+
 var {
   AppRegistry,
   StyleSheet,
@@ -19,6 +21,16 @@ var RecipeNew = React.createClass({
       title: '',
       description: '',
     };
+  },
+
+  handleSubmit: function() {
+    if(this.state.title != ''){
+      flux.actions.addRecipe({
+        title: this.state.title,
+        description: this.state.description
+      });
+      this.props.navigator.pop();
+    }
   },
 
   render: function() {
@@ -43,7 +55,7 @@ var RecipeNew = React.createClass({
           placeholder="Fill your description..."
           autoCorrect={false}
         />
-        <TouchableHighlight style={ styles.saveButton }>
+        <TouchableHighlight style={ styles.saveButton } onPress={ () => this.handleSubmit() } activeOpacity={ 100 } underlayColor="#ea4b54">
           <Text style={ styles.saveButtonText }>
             Save
           </Text>
@@ -81,7 +93,6 @@ var styles = StyleSheet.create({
   saveButton: {
     backgroundColor: "#ff505a",
     padding: 15,
-    textAlign: "center"
   },
   saveButtonText: {
     textAlign: "center",
