@@ -1,7 +1,7 @@
 'use strict';
 
 var Fluxxor = require('fluxxor');
-var Firebase = require('firebase');
+var Firebase = require('firebase-react-native');
 var ref = new Firebase('fiery-torch-4859.firebaseIO.com');
 var recipesRef = ref.child('recipes');
 

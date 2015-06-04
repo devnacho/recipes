@@ -1,6 +1,6 @@
 'use strict';
 
-var Firebase = require('firebase');
+var Firebase = require('firebase-react-native');
 var constants = require('../constants');
 var flux = require('../flux');
 

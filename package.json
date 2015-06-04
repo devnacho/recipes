@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "firebase": "^2.2.6",
+    "firebase-react-native": "0.0.2",
     "fluxxor": "^1.5.4",
     "react-native": "^0.4.4"
   }
