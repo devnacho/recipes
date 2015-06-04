@@ -8,6 +8,7 @@ var {
   View,
   ScrollView,
   TextInput,
+  TouchableHighlight
 } = React;
 
 
@@ -42,6 +43,11 @@ var RecipeNew = React.createClass({
           placeholder="Fill your description..."
           autoCorrect={false}
         />
+        <TouchableHighlight style={ styles.saveButton }>
+          <Text style={ styles.saveButtonText }>
+            Save
+          </Text>
+        </TouchableHighlight>
       </ScrollView>
     );
   },
@@ -49,29 +55,41 @@ var RecipeNew = React.createClass({
 
 var styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ff505a",
+    backgroundColor: "white",
     padding: 20
   },
   label: {
-    color: "white",
+    color: "#ff505a",
     marginBottom: 10,
-    fontSize: 25,
+    fontSize: 23,
     fontFamily: "Baskerville"
   },
   textInput: {
     height: 40,
     marginBottom: 10,
-    fontSize: 16,
-    color: "#4b0b0e",
+    fontSize: 15,
+    color: "#666666",
     fontFamily: "Helvetica Neue",
   },
   textArea: {
     height: 250,
     marginBottom: 10,
-    fontSize: 16,
-    color: "#4b0b0e",
+    fontSize: 15,
+    color: "#666666",
     fontFamily: "Helvetica Neue",
+  },
+  saveButton: {
+    backgroundColor: "#ff505a",
+    padding: 15,
+    textAlign: "center"
+  },
+  saveButtonText: {
+    textAlign: "center",
+    fontSize:16,
+    color: "white",
+
   }
+
 
 });
 

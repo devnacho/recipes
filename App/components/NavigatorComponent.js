@@ -20,7 +20,7 @@ var NavigatorComponent = React.createClass({
   navigateToNewRecipe: function() {
     this.refs.nav.push({
       title: 'New Recipe',
-      component: RecipeNew
+      component: RecipeNew,
     });
   },
 
