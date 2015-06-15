@@ -16,7 +16,7 @@ var RecipeItem = React.createClass({
 
   getInitialState: function() {
     return {
-      recipe: this.props.recipe,
+      recipe: this.props.data.recipe,
     };
   },
 
