@@ -84,7 +84,9 @@ var styles = StyleSheet.create({
   recipeHeader: {
     backgroundColor: '#ff505a',
     padding: 25,
-    paddingBottom:45
+    paddingBottom:45,
+    marginTop: -400, // Hack
+    paddingTop: 420, // Hack
   },
   recipeTitle: {
     fontSize: 25,
