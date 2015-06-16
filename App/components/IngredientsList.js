@@ -9,6 +9,8 @@ var {
   View,
 } = React;
 
+var IngredientItem = require('./IngredientItem');
+
 
 var IngredientsList = React.createClass({
 
@@ -20,14 +22,13 @@ var IngredientsList = React.createClass({
   },
 
 
-
   render: function() {
     var ingredientRows = []
     for (var i = 0; i < this.props.ingredients.length; i++) {
       ingredientRows.push(this.renderIngredientListItem(this.props.ingredients[i]))
     }
     return (
-      <View>
+      <View style={styles.ingredientsList}>
         {ingredientRows}
       </View>
     );
@@ -35,18 +36,15 @@ var IngredientsList = React.createClass({
 
   renderIngredientListItem: function(ingredient) {
     return (
-      <View style={styles.ingredientListItem}>
-        <Text>{ingredient.name}</Text>
-      </View>
+      <IngredientItem ingredient={ ingredient } ></IngredientItem>
     );
   },
 });
 
 var styles = StyleSheet.create({
-
-  ingredientListItem: {
+  ingredientsList: {
+    padding: 25,
   },
-
 });
 
 

@@ -15,9 +15,6 @@ var IngredientNew = React.createClass({
   render: function() {
     return (
       <View>
-        <Text>
-          IngredientNew
-        </Text>
       </View>
     );
   },

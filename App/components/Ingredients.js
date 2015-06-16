@@ -28,7 +28,6 @@ var Ingredients = React.createClass({
 var styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    padding: 25
   },
 
 
