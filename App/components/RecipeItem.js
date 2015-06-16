@@ -42,19 +42,18 @@ var RecipeItem = React.createClass({
 
   _renderRecipeListItem: function(recipe) {
     return (
-      <ScrollView>
-        <Text>
-          { recipe.title }
-        </Text>
-        <Text>
-          { recipe.description }
-        </Text>
-
-        <TouchableHighlight onPress={ () => this._removeRecipe(recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
-          <Text>
-            Remove
+      <ScrollView style={styles.container}>
+        <View style={styles.recipeHeader}>
+          <Text style={styles.recipeTitle}>
+            { recipe.title }
           </Text>
-        </TouchableHighlight>
+          <Text style={styles.recipeDescription}>
+            { recipe.description }
+          </Text>
+        </View>
+
+
+
       </ScrollView>
     );
   },
@@ -66,6 +65,38 @@ var RecipeItem = React.createClass({
       <ScrollView>
       </ScrollView>
     );
+  }
+
+});
+
+// This was temporarily removed from _renderRecipeListItem
+// <TouchableHighlight onPress={ () => this._removeRecipe(recipe) } activeOpacity={ 100 } underlayColor="#ea4b54">
+//   <Text>
+//     Remove
+//   </Text>
+// </TouchableHighlight>
+
+var styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#FFF',
+  },
+  recipeHeader: {
+    backgroundColor: '#ff505a',
+    padding: 25,
+    paddingBottom:45
+  },
+  recipeTitle: {
+    fontSize: 25,
+    color: "#FFF",
+    fontFamily: "Baskerville",
+    fontWeight: "300",
+    marginBottom: 5,
+  },
+  recipeDescription: {
+    fontSize: 13,
+    color: "#4b0b0e",
+    fontFamily: "Helvetica Neue",
+    lineHeight: 20,
   }
 
 });
