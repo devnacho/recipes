@@ -11,6 +11,8 @@ var {
   TouchableHighlight
 } = React;
 
+var Ingredients = require('./Ingredients');
+
 
 var RecipeItem = React.createClass({
 
@@ -51,9 +53,8 @@ var RecipeItem = React.createClass({
             { recipe.description }
           </Text>
         </View>
-
-
-
+        <Ingredients>
+        </Ingredients>
       </ScrollView>
     );
   },
