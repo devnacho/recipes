@@ -17,8 +17,8 @@ var Ingredients = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-        <IngredientNew></IngredientNew>
-        <IngredientsList></IngredientsList>
+        <IngredientNew recipe={ this.props.recipe }></IngredientNew>
+        <IngredientsList ingredients={ this.props.recipe.ingredients }></IngredientsList>
       </View>
     );
   },

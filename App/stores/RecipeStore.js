@@ -25,7 +25,16 @@ var RecipeStore = Fluxxor.createStore({
     recipesSnapshot.forEach(function(recipeData) {
       var recipe = recipeData.val();
       recipe.id = recipeData.key();
+      recipe.ingredients = [];
+
+      recipeData.child('ingredients').forEach(function(ingredientsData) {
+        var ingredient = ingredientsData.val();
+        ingredient.id = ingredientsData.key();
+        recipe.ingredients.unshift(ingredient);
+      });
+
       recipes.unshift(recipe);
+
     });
 
     this.recipes = recipes;

@@ -14,14 +14,6 @@ var IngredientItem = require('./IngredientItem');
 
 var IngredientsList = React.createClass({
 
-  getDefaultProps: function() {
-    return {
-      //Replace this with real props
-      ingredients: [{name: "Blue Cheese"}, {name: "Meat"}, {name: "Mustard"}],
-    };
-  },
-
-
   render: function() {
     var ingredientRows = []
     for (var i = 0; i < this.props.ingredients.length; i++) {
@@ -36,7 +28,7 @@ var IngredientsList = React.createClass({
 
   renderIngredientListItem: function(ingredient) {
     return (
-      <IngredientItem ingredient={ ingredient } ></IngredientItem>
+      <IngredientItem ingredient={ ingredient } key={ ingredient.id } ></IngredientItem>
     );
   },
 });
@@ -44,6 +36,7 @@ var IngredientsList = React.createClass({
 var styles = StyleSheet.create({
   ingredientsList: {
     padding: 25,
+    paddingTop: 0,
   },
 });
 

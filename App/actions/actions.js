@@ -28,6 +28,12 @@ var actions = {
   removeRecipe: function(recipe) {
     recipesRef.child(recipe.id).remove();
   },
+
+
+  addIngredientToRecipe: function(ingredient, recipe) {
+    var ingredientsRef = recipesRef.child(recipe.id).child('ingredients');
+    ingredientsRef.push(ingredient);
+  }
 };
 
 

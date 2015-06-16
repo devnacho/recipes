@@ -53,7 +53,7 @@ var RecipeItem = React.createClass({
             { recipe.description }
           </Text>
         </View>
-        <Ingredients>
+        <Ingredients recipe={ this.state.recipe }>
         </Ingredients>
       </ScrollView>
     );
