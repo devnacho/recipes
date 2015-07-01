@@ -3,12 +3,12 @@
 var React = require('react-native');
 var flux = require('../flux');
 var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  TouchableHighlight
+AppRegistry,
+StyleSheet,
+Text,
+View,
+ScrollView,
+TouchableHighlight
 } = React;
 
 var Ingredients = require('./Ingredients');

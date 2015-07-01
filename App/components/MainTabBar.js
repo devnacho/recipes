@@ -10,7 +10,7 @@ var {
 } = React;
 
 var NavigatorComponent = require('./NavigatorComponent')
-var Hello = require('./Hello')
+var GroceriesNavigatorComponent = require('./GroceriesNavigatorComponent')
 
 
 var MainTabBar = React.createClass({
@@ -42,7 +42,7 @@ var MainTabBar = React.createClass({
             () => {
             this._pressTabItem('groceriesTab');
           }}>
-          <Hello></Hello>
+          <GroceriesNavigatorComponent></GroceriesNavigatorComponent>
         </TabBarIOS.Item>
 
       </TabBarIOS>
