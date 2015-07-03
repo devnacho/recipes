@@ -11,6 +11,7 @@ var {
 
 var IndividualGroceriesList = require('./IndividualGroceriesList');
 var RecipesGroceriesList = require('./RecipesGroceriesList');
+var GroceryNew = require('./GroceryNew');
 
 var Groceries = React.createClass({
 
@@ -23,6 +24,7 @@ var Groceries = React.createClass({
   render: function() {
     return (
       <ScrollView style={ styles.container }>
+        <GroceryNew></GroceryNew>
         <IndividualGroceriesList items={ this.props.individualItems }></IndividualGroceriesList>
         <RecipesGroceriesList></RecipesGroceriesList>
       </ScrollView>
