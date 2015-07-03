@@ -21,6 +21,7 @@ var {
 // Flux
 
 flux.actions.startListeningRecipes();
+flux.actions.startListeningGroceries();
 
 AppRegistry.registerComponent('recipesApp', () => MainTabBar);
 

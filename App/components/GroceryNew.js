@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react-native');
+var flux = require('../flux');
+
 var {
   AppRegistry,
   StyleSheet,
@@ -14,14 +16,16 @@ var {
 var GroceryNew = React.createClass({
 
   _addGroceryItem: function() {
-    console.log( "Add grocery Item" );
+    flux.actions.addGrocery({name: this.state.name });
+    this.refs.GroceryNameTextInput.setNativeProps({text: ''})
+
   },
 
   render: function() {
     return (
       <View style={ styles.groceryNew }>
         <TextInput
-          ref=""
+          ref="GroceryNameTextInput"
           style={ styles.textInput }
           onChangeText={(text) => this.setState({name: text})}
           placeholder="Enter a grocery item and press enter..."

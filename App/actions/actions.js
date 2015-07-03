@@ -6,21 +6,31 @@ var flux = require('../flux');
 
 var ref = new Firebase('fiery-torch-4859.firebaseIO.com');
 var recipesRef = ref.child('recipes');
+var groceriesRef= ref.child('groceries');
 
 var actions = {
   startListeningRecipes: function() {
     this.dispatch(constants.LISTEN_RECIPES, {});
   },
 
+  startListeningGroceries: function() {
+    this.dispatch(constants.LISTEN_GROCERIES, {});
+  },
+
   addRecipe: function(recipe) {
-
-    var that = this;
-
     recipesRef.push(recipe, function(error) {
       if (error !== null) {
         console.log(error.code);
       } else {
+      }
+    });
+  },
 
+  addGrocery: function(grocery) {
+    groceriesRef.push(grocery, function(error) {
+      if (error !== null) {
+        console.log(error.code);
+      } else {
       }
     });
   },
